@@ -6,6 +6,7 @@
   align-items: flex-start; /* Align content to the left */
   background-color: #f4f4f8;
   min-height: 100vh;
+  width: 100%; /* Ensure full width is used */
 }
 
 /* Dashboard Styles */
@@ -76,17 +77,20 @@
   margin-top: 10px;
 }
 
-/* Detail Page Styles */
+/* Details Page Styles */
 .detail-page {
   padding: 20px;
   font-family: Arial, sans-serif;
   background-color: #f4f4f8;
-  min-height: 100vh;
+  height: 100vh; /* Ensure the details page takes full height */
   display: flex;
   flex-direction: row; /* Align content in a row */
   gap: 20px; /* Add gap between the graph and details */
   justify-content: flex-start; /* Align content to the left */
   align-items: flex-start; /* Align items to the top */
+  flex-wrap: wrap; /* Allow content to wrap on smaller screens */
+  overflow: hidden; /* Prevent unnecessary scrolling */
+  box-sizing: border-box;
 }
 
 /* Ensure that the detail-container takes enough space */
@@ -96,20 +100,28 @@
   gap: 20px; /* Add spacing between sections */
   flex-grow: 1; /* Allow the container to grow and take available space */
   width: 100%; /* Ensure full width is used */
+  min-height: 0; /* Prevent it from growing past the screen size */
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
+  overflow-y: auto; /* Ensure content overflows vertically and scrolls */
+  max-height: calc(100vh - 40px); /* Make sure the container fits within the screen height */
+  box-sizing: border-box;
 }
 
-/* Graph Section */
+/* Graph Section - Fixed on the Left */
 .graph-section {
-  flex: 1 1 60%; /* Adjust the flex property to allow the graph to take 60% of the space */
+  flex: 0 0 60%; /* Adjust the flex property to fix the graph to 60% of the space */
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   padding: 20px;
   min-height: 300px; /* Ensure there's enough space for the graph */
-  width: 800px; /* Ensure it takes 100% of its allocated space */
+  max-width: 100%; /* Ensure it does not exceed 100% width */
+  overflow: hidden; /* Prevent overflow */
+  position: sticky; /* Make the graph section sticky */
+  top: 0; /* Stick it to the top */
 }
 
-/* Info Section (details on the right) */
+/* Info Section (data on the right) */
 .info-section {
   flex: 1 1 35%; /* Allow details to take 35% of the container space */
   display: flex;
@@ -117,18 +129,9 @@
   gap: 20px;
   padding: 20px; /* Added padding for better spacing */
   width: 100%; /* Ensure it takes 100% of its allocated space */
-}
-
-/* Graph Placeholder */
-.graph-placeholder {
-  height: 100%; /* Use full height of the container */
-  background-color: #e9ecef;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  color: #6c757d;
+  box-sizing: border-box; /* Ensure padding doesn't cause overflow */
+  max-height: 100vh; /* Ensure the container doesn't exceed screen height */
+  overflow-y: auto; /* Allow scrolling when content overflows vertically */
 }
 
 /* Buy/Sell Section */
@@ -137,11 +140,14 @@
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Ensure it takes full width of the container */
+  box-sizing: border-box; /* Ensure padding does not cause overflow */
 }
 
 .trade-box {
   display: flex;
   gap: 20px;
+  flex-wrap: wrap; /* Ensure items wrap on smaller screens */
 }
 
 .trade input {
@@ -151,6 +157,7 @@
   font-size: 16px;
   border: 1px solid #ddd;
   border-radius: 5px;
+  box-sizing: border-box; /* Ensure padding does not cause overflow */
 }
 
 .trade button {
@@ -160,6 +167,7 @@
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
+  box-sizing: border-box; /* Ensure padding does not cause overflow */
 }
 
 .trade button:hover {
@@ -176,8 +184,9 @@
 .small-card {
   background-color: #ffffff;
   border-radius: 10px;
+  height: 80px;
+  width: 160px;
   padding: 10px;
-  width: 48%;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
