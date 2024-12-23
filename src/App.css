@@ -1,38 +1,187 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* General Styles */
+.app {
+  font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
+  align-items: flex-start; /* Align content to the left */
+  background-color: #f4f4f8;
+  min-height: 100vh;
+}
+
+/* Dashboard Styles */
+.dashboard {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Left Panel */
+.left-panel {
+  background-color: #343a40;
+  color: white;
+  padding: 20px;
+  width: 250px;
+  height: 100vh;
+}
+
+.sections {
+  list-style: none;
+  padding: 0;
+}
+
+.sections li {
+  padding: 10px 0;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+/* Main Content */
+.main-content {
+  padding: 20px;
+  width: 100%;
+}
+
+/* Card Styles */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+}
+
+.token-logo {
+  font-size: 2em;
+  margin-right: 15px;
+}
+
+.card h2 {
+  font-size: 1.5em;
+}
+
+.card p {
+  font-size: 1.2em;
+  margin-top: 10px;
+}
+
+/* Detail Page Styles */
+.detail-page {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f8;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row; /* Align content in a row */
+  gap: 20px; /* Add gap between the graph and details */
+  justify-content: flex-start; /* Align content to the left */
+  align-items: flex-start; /* Align items to the top */
+}
+
+/* Ensure that the detail-container takes enough space */
+.detail-container {
+  display: flex;
+  flex-direction: row; /* Align graph and details side by side */
+  gap: 20px; /* Add spacing between sections */
+  flex-grow: 1; /* Allow the container to grow and take available space */
+  width: 100%; /* Ensure full width is used */
+}
+
+/* Graph Section */
+.graph-section {
+  flex: 1 1 60%; /* Adjust the flex property to allow the graph to take 60% of the space */
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  min-height: 300px; /* Ensure there's enough space for the graph */
+  width: 800px; /* Ensure it takes 100% of its allocated space */
+}
+
+/* Info Section (details on the right) */
+.info-section {
+  flex: 1 1 35%; /* Allow details to take 35% of the container space */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px; /* Added padding for better spacing */
+  width: 100%; /* Ensure it takes 100% of its allocated space */
+}
+
+/* Graph Placeholder */
+.graph-placeholder {
+  height: 100%; /* Use full height of the container */
+  background-color: #e9ecef;
+  border-radius: 8px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: 16px;
+  color: #6c757d;
+}
+
+/* Buy/Sell Section */
+.buy-sell-container {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.trade-box {
+  display: flex;
+  gap: 20px;
+}
+
+.trade input {
+  padding: 10px;
+  width: 100%;
+  margin: 5px 0;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.trade button {
+  background-color: #28a745;
   color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.trade button:hover {
+  background-color: #218838;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Small Info Cards */
+.small-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.small-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 10px;
+  width: 48%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.small-card h3 {
+  font-size: 1.2em;
+  margin-top: 5px;
 }
